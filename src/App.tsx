@@ -42,7 +42,7 @@ export function App() {
       loadAllTransactions()
     }
   }, [employeeUtils.loading, employees, loadAllTransactions])
-console.log(employees)
+
   return (
     <Fragment>
       <main className="MainContainer">
@@ -51,7 +51,7 @@ console.log(employees)
         <hr className="RampBreak--l" />
 
         <InputSelect<Employee>
-          isLoading={isLoading}
+          isLoading={employees === null || employees.length === 0}
           defaultValue={EMPTY_EMPLOYEE}
           items={employees === null ? [] : [EMPTY_EMPLOYEE, ...employees]}
           label="Filter by employee"
